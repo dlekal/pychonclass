@@ -1,0 +1,128 @@
+#자료형
+#정수형 int
+#상수형 float
+#문자형 str
+#문자열
+#인덱싱 - 단일 대상
+#str_test = "hello python!"
+
+#print(str_test[4])
+
+#print(str_test[20]) # 범위를 벗어나게 되면 에러 발생
+
+#슬라이싱 - 일정 범위
+
+# print(str_test[2:8]) # 2 이상 8미만(2-7)
+#
+# print(str_test[:5]) # "0부터 는 생략가능"
+#
+# print(str_test[6:]) # " 맨 끝까지"는 생략가능
+#
+# print(str_test[2:10:2]) # 세번째 숫자를 이용해서 n칸만큼 띄워서 슬라이싱이 가능하다
+#
+# print(str_test[9:3]) # 마찬가지로 생략 가능
+#
+# print(str_test[1::5]) # 마찬가지로 생략 가능
+#
+# print(str_test[::7]) # 둘 다 생략가능
+
+#음수 자표
+# print(str_test[-2])
+
+#print(str_test[::-1]) #문자열 뒤집기
+
+
+#문자열 welcome to mython? 을 선언한다
+#m을 p로, ?를  ! o,a 로 바꾸는 프로그램을 작성
+
+# a ="welcome to mython?"
+#  print(a[:4]+"a"+a[5:11]+ "p" + a[12:17] + "!")
+
+#입력 함수 input
+#input()
+
+# a = input()
+# print(a)
+
+# a2 = input("값을 입력해주세요 : ")
+# print("입력한 값은 " + a2 + " 입니다")
+
+#input과 자료형
+# test = input() #str로 값을 입력 받는다
+# test = int(input()) #int로 값을 입력 받는다
+# print(test, type(test))
+
+#제어문 - 조건문, 반복문
+# > < >= <=
+# == : 서로 같다
+# != : 서로 다르다
+# and :연결되어 있는 두 조건이 모두 참일 때만 참
+# or : 연결되어 있는 두 조건이 하나라도 참이면 참
+# nor : 참값 반전
+
+#조건문 - if, else, elif
+
+#if 조건
+#   실행 코드
+
+# a = 2
+# if a > 3 and a == 2: #거짓 and 참 -> 거짓
+#     print(a + 3)
+# print(a - 2)
+
+# a = 13
+# if a + 2 == 15 or a % 2 == 0:
+#     print("1")
+# else:("no")
+
+# inputed = int(input())
+# if (inputed > 18 and inputed * 2 < 100) or inputed == 13:
+#     inputed = inputed + 2
+#     print("1", inputed)
+# elif inputed == 1000:
+#     print("t2")
+# print("f")
+
+
+#if 독립문 -> 혼자 사용 가능
+#else,elif 종속문 -> if가 존재 해야만 사용가능
+
+
+
+#if 조건
+# 실행 코드
+
+#if 조건
+# 실행 코드
+#else:
+# 실행코드
+
+#if 조건
+# 실행 코드
+#elif:
+# 실행코드
+
+#if 조건
+# 실행 코드
+#elif:
+# 실행코드
+#else:
+# 실행코드
+
+#if 조건
+# 실행 코드
+#elif:
+# 실행코드
+#elif:
+# 실행코드
+#elif:
+# 실행코드
+#elif:
+# 실행코드
+#elif:
+# 실행코드
+#.
+#..
+#...
+#else:
+# 실행코드
