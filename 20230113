@@ -1,0 +1,104 @@
+# a = int(input())
+#
+# if a > 10:
+#     print(a * 3)
+#     if a * 2 <= 50:
+#         print("a")
+#         if a == 25:
+#             if a * 4 == 100:
+#                 print("T")
+#             else:
+#                 print("F")
+#         elif a == 26:
+#             print("O")
+# else:
+#     print(a-10)
+
+
+# a = 7
+#
+# if a > 6:
+#     print(1)
+# elif a > 5:
+#     print(3)
+# if a > 4:
+#     print(3)
+# elif a > 3:
+#     print(4)
+
+# a = int(input())
+
+# if a >= 90:
+#     print("A")
+# elif a >= 80:
+#     print("B")
+# elif a >= 70:
+#     print("C")
+# elif a >= 60:
+#     print("D")
+# else:
+#     print("F")
+
+# a = int(input())
+# b = int(input())
+# if a > b:
+#     print(">")
+# elif b > a:
+#     print("<")
+# elif a == b:
+#     print("==")
+
+
+# a = int(input())
+#
+# if (a % 4 == 0 and a % 100 != 0) or a % 400 == 0:
+#     print(1)
+# else:
+#     print(0)
+
+# x = int(input())
+# y = int(input())
+#
+# if x > 0 and y > 0:
+#     print("제 1 사분면")
+# elif x < 0 and y > 0:
+#     print("제 2 사분면")
+# elif x < 0 and  y < 0:
+#     print("제 3 사분면")
+# else:
+#     print("제 4 사분면")
+
+# H = int(input())
+# M = int(input())
+#
+# if M < 45:
+#     print(H - 1 , M + 60 - 45 )
+# elif M >= 45:
+#     print(H, M - 45)
+
+
+# a = int(input())
+# b = int(input())
+# c = int(input())
+#
+# if c > 60:
+#     print(a + (c // 60), b + (c % 60))
+# elif b + c < 60:
+#     print(a,b+c)
+# elif c > 60:
+#     print(a+(c//60),b+(c%60))
+
+# a= int(input())
+# b= int(input())
+# c= int(input())
+#
+# if a==b==c:
+#     print((a*1000)+10000)
+# elif a==b!=c:
+#     print((a*100)+1000)
+# elif a==c!=b:
+#     print((a*100)+1000)
+# elif a!=b==c:
+#     print((a*100)+1000)
+# else:
+#     print(max(a,b,c)*100)
