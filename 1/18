@@ -1,0 +1,87 @@
+# 반복문
+# for , while
+
+# for문
+
+# for 변수이름 in
+# ranfe(반복문) :
+#     반복코드
+#     ~
+#     ~
+#     ~
+
+
+# for i in range(10):
+#     print("hello")
+#
+#for문에서 i가 하는 역할
+#
+# for i in range(10): #i는 0부터 9까지 반복할 때마다 1씩 증가한다
+#     print(i)
+
+# for i in range(3,7):
+# #     print(i)
+
+# for i in range(2, 20 , 3): # 3씩증가
+#     print(i)
+
+
+
+#while문
+
+
+# while 조건:
+#     반복 코드
+#     ~
+#     ~
+#     ~
+
+# a = 0
+
+# while a<= 10:
+#     print(a)
+#     a+=1
+
+# 반복문 특수 함수
+# break : 반복문 탈출 함수
+# continue : 반복문 건너뛰기 함수
+
+
+# for i in range(10):
+#     if i == 4:
+#         continue
+#     print(i)
+
+#무한 반복
+# a=0
+# while True:
+#     print("hello")
+#     a+=1
+#     if a > 100:
+#         break
+
+# 1 홀짝 판별
+# 2 소수 판별
+
+# a = int(input())
+#
+# if a % 2 < 1:
+#     print("짝")
+# elif a % 2 >= 1:
+#     print("홀")
+
+# a = int(input())
+# b=0
+# for i in range(2,a):
+#     if a%i== 0:
+#        b=1
+#
+# if b == 1:
+#     print("소수입니다")
+# else:
+#     print("소수가 아닙니다")
+
+
+# a = int(input())
+# for i in range(1, a + 1):
+#     print("*"* i)
