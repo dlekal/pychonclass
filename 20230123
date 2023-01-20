@@ -1,0 +1,22 @@
+#format
+
+# 함수 format
+
+# test_str = "hello {}. my name is {}. i,m {} years old".format("python","toom",16)
+# print(test_str)
+
+
+# % format
+
+# test_str = "hello %s. my name is %s. i,m %s years old" % ("python","toom",16)
+# print(test_str)
+
+
+# f - string
+
+# year = "2023"
+# month = 1
+# day = 20
+# 
+# test_str = f"welcome to {year},{month},{day}!"
+# print(test_str)
