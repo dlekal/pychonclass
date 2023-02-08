@@ -1,0 +1,65 @@
+# 시퀀스 자료형의 길이를 반환하는 함수 len
+# lst = [5,9,8,7,6]
+# st = "welcome!"
+# st2 = "     "
+# print(len(lst),len(st2),len(st))
+
+# in 문법 - 시퀀스 자료형
+
+# for 시퀀스 자료형과의 연계
+
+# lst = [3,1,5,9]
+#
+# for i in lst: # 해당 리스트 내에서 값을 하나씩 i 에 저장하여 반복 실행
+#     print(i)
+#
+# st = "hello"
+#
+# for i in st: # 문자열도 동일하게 적용됨
+#     print(i)
+
+# lst = ["apple","banana","cinamon"]
+# st = "apple"
+# st2 = "pear"
+#
+# if st in lst:
+#     print("T")
+# else:
+#     print("F")
+# if st2 in lst:
+#     print("T2")
+# else:
+#     print("F2")
+
+
+
+n = int(input())
+lst = []
+for i in range(n):
+    a = int(input())
+    lst.append(a)
+print(lst)
+
+
+# max = list[0]
+# min = list[0]
+#
+# for i in range(len(list)):
+#     if max < list[i]:
+#         max = list[i]
+#     if min > list[i]:
+#         min = list[i]
+# print("주어진 리스트에서 최댓값은 %d 입니다." % (max))
+# print("주어진 리스트에서 최솟값은 %d 입니다." % (min))
+
+max = lst.pop()
+min = max
+
+for i in lst:
+    a = lst.pop()
+    if max < a:
+        max = a
+    if min > a:
+        min = a
+print("주어진 리스트에서 최댓값은 %d 입니다." % (max))
+print("주어진 리스트에서 최솟값은 %d 입니다." % (min))
