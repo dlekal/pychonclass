@@ -1,0 +1,59 @@
+# n = int(input())
+# pibo =  [0, 1]
+#
+# for i in range(n - 2):
+#     pibo.append(pibo[i] + pibo[i+1])
+# print(pibo)
+#
+# for i in range(1, n - 1):
+#     pibo.append(pibo[i - 1] + pibo[i])
+# print(pibo)
+
+
+
+
+# 사용자 정의 함수
+
+# 함수 생성 방법
+
+# def 함수 이름():
+#     코드
+#     .
+#     .
+#     .
+
+# def test_func(): # 함수 생성
+#     print(True)
+#
+# test_func() # 함수를 호출 (실행)
+
+# 함수 외부와 내부의 영향권
+
+# 매개변수와 인자
+
+# def test_func2(a): # 매개변수
+#     print(a + 2)
+#
+# test_func2(10) # 인자
+#
+#
+# def test_func3(a,b,c,d): # 매개변수
+#     print(a + b - c * d)
+#
+# test_func3(10,2,7,9)
+
+# 함수의 값 반환
+# return
+
+# def test_func4():
+#     return 100
+
+
+
+def test(x,y):
+    return x + y
+
+a = input()
+
+test(a)
+print(int(a[0]) + int(a[2]))
