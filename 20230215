@@ -1,0 +1,64 @@
+# def test(x,y,z):
+#     if y == "+":
+#         return x + z
+#     elif y == "-":
+#         return x - z
+#     elif y == "/":
+#         return x / z
+#     else:
+#         return x * z
+#
+# #
+# a = input()
+#
+
+# c = int(a[0])
+# d = int(a[2])
+# e = int(a[4])
+# print(test(c,d,e))
+
+# def clac(f,c,s):
+#     if c == "+":
+#         return f + s
+#     elif c == "-":
+#         return f - s
+#     elif c == "/":
+#         return f / s
+#     else:
+#         return f * s
+#
+#
+# a = input()
+# 1. 인덱싱
+# first_num = a[0] # 첫번째 수
+# calc_str = a[2] # 기호
+# second_num = a[4] # 두번째 수
+# clac(first_num,calc_str,second_num)# calc 함수 호출
+
+
+
+
+# 2. 문자열 함수 split()
+# inputed_split = a.split(" ")
+# print(inputed_split)
+# print(clac(int(inputed_split[0]),inputed_split[1],int(inputed_split[2])))
+
+# 3. 띄어쓰기를 사용하지 않았을 경우 join 과 split을 사용한다
+# inputed_join = " ".join(a)
+# inputed_split = inputed_join.split(" ")
+# print(clac(int(inputed_split[0]),inputed_split[1],int(inputed_split[2])))
+
+def id(new_id):
+
+    # 1.
+    new_id = new_id.lower()
+    # 2.
+    anser = ' '
+    for word in new_id:
+        if word.isalnum or word in '-_.':
+            anser += word
+    # 3.
+    while '..' in anser:
+        anser = anser.replace('..','.')
+    # 4.
+    anser = anser[:-1] == "." 
