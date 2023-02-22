@@ -1,0 +1,19 @@
+# 매개변수 지정하기
+
+# def myfunc(a,b,c,d):
+#     return a + b + c + d
+#
+# print(myfunc(1,2,3,4))
+# print(myfunc(b = 5, d = 10, a = 9, c = 6))
+
+# print 함수 옵션
+# 특수 명령 문자
+# \n : 개갱 문자
+# \t : 들여쓰기 문자
+
+print("abcdefg\nhijk\tlmnop")
+
+
+# end 옵션
+print("abc", end = "")
+print("def")
