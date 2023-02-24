@@ -1,0 +1,26 @@
+# a = input()
+# c = int(input())
+# b = ord(a) + c
+# d = chr(b)
+# while True:
+#         if b >= 90 and b < 95:
+#                 e = (b - 26)
+#                 f = chr(e)
+#                 print(f)
+#                 break
+#         elif b >= 122:
+#                 e = (b - 26)
+#                 f = chr(e)
+#                 print(f)
+#                 break
+#         elif b <= 122:
+#                 print(d)
+#                 break
+
+a = input()
+b = int(input())
+
+if a.islower():
+        print(chr(((ord(a) + b - ord("a")) % 26) + ord("a")))
+else:
+        print(chr(((ord(a)+ b - ord("A")) %  26) + ord("A")))
