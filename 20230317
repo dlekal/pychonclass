@@ -1,0 +1,79 @@
+# x = input().split()
+# f = [1,1,2,2,2,8]
+# for i in range(len(x)):
+#     print(f[i] - int(x[i]),end = ' ')
+
+
+# a = int(input())
+#
+# for i in range(a):
+#       print(" " * (a - i) + "*" * ((2 * i-1)))
+#
+# for i in range(a, 0, -1):
+#        print(" " * (a - i) + "*" * ((2 * i-1)))
+# #
+#
+# n = int(input())
+#
+# for i in range(1,n+1):
+#     print((' ' * (n - i)) + ('*' * (2 * i -1)))
+#
+# for j in range(n-1,0,-1):
+#     print((' ' * (n - j)) + ('*' * (2 * j -1)))
+
+# n,m = input().split()
+# n = int(n)
+# m = int(m)
+# baskets = []    # [1,2,3,4,5,6,7,8,9,10]
+# for i in range(1,n + 1):
+#     baskets.append(i)
+#
+# for _ in range(m):
+#     i,j,k = input().split()
+#     i = int(i) - 1
+#     j = int(j) - 1
+#     k = int(k) - 1
+#     a = baskets[k:j+1]
+#     b = baskets[i:k]
+#     baskets[i:j+1] = a + b
+#
+# for b in baskets:
+#     print(b,end = ' ')
+
+# 1.
+# string = input()
+#
+# if string == string[::-1]:
+#     print(1)
+# else:
+#     print(0)
+
+# 2.
+# string = input()
+# middle = len(string)//2
+# if len(string) % 2 == 0:
+#     a = string[:middle - 1]
+#     b = string[middle + 1:]
+# else:
+#     a = string[:middle]
+#     b = string[middle + 1:]
+# if a == b[::-1]:
+#     print(1)
+# else:
+#     print(0)
+
+string = input()
+string = string.upper()
+a = []
+counts = []
+
+for i in set(string):
+    a.append(i)
+    counts.append(string.count(i))
+
+maxcount = max(counts)
+if counts.count(maxcount) > 1:
+    print('?')
+else:
+    idx = counts.index(maxcount)
+    print(a[idx])
