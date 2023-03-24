@@ -1,0 +1,35 @@
+# c = int(input()) # 테스트케이스 개수
+# for _ in range(c):
+#     temp = input().split()
+#     n = int(temp[0]) # 학생수
+#     scores = temp[1:] # 성적들
+#     total = 0
+#     for i  in range(len(scores)):
+#         scores[i] = int(scores[i]) # 성적들을 정수값으로 변환
+#         total += scores[i]
+#     average = total / n # 평균
+#     cnt = 0 # 평균을 넘는 학생수
+#     for scores in scores:
+#         if scores > average:
+#             cnt +=  1
+#     print("%.3f%%" %(cnt / n * 100))
+# n = int(input())
+# cnt = 0
+# for _ in range(n):
+#     string = input()
+#     check = True
+#     for i in range(len(string) - 1):
+#         if string[i] == string[i + 1]:
+#             continue
+#         else:
+#             if string[i] in string[i + 1:]:
+#                 check = False
+#                 break
+#     if check:
+#         cnt += 1
+# print(cnt)
+a = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+b = input()
+for i in a:
+    b = b.replace(i,'1')
+print(len(b))
