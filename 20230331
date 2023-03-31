@@ -1,0 +1,58 @@
+# a = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+# b = input()
+# for i in a:
+#     b = b.replace(i,'1')
+# print(len(b))
+
+# string = input()
+#
+# cnt = len(string) # 초기 개수는 입력받은 문자열의 개수 전체를 본다.
+#
+# # 크로아티아 알파벳중에 2개 또는 3개짜리로 카운트 한 문자들 만큼 줄여준다.
+#
+# for i in range(len(string)):
+#     if string[i] == '=':
+#         if string[i-1] in ['s','c']: # s=, j=0 을 두개의 문자로 카운팅 했기에 하나씩 줄여준다.
+#             cnt -= 1
+#         elif string[i-1] == 'z':
+#             if string[i-2] == 'd':
+#                 cnt -= 2
+#             else:
+#                 cnt -= 1
+#     elif string[i] == '-': # c-, d-을 두개의 문자로 카운팅했기에 하나씩 줄여준다.
+#         cnt -= 1
+#     elif string[i] == 'j':
+#         if string[i-1] in ['l','n']:
+#             cnt -= 1
+# print(cnt)
+# 전공과목별합 = 0
+# 학점의총합 = 0
+# 과목평점 = {'A+': 4.5,'A0' : 4.0,'B+': 3.5,'B0': 3.0,'C+': 2.5,'C0': 2.0,'D+': 1.5, 'D0': 1.0, 'F': 0.0}
+# for _ in range(20):
+#     과목명, 학점, 등급, = input().split()
+#     if 등급 == 'P':
+#         continue
+#     학점의총합 += float(학점)
+#     전공과목별합 += float(학점) * 과목평점[등급]
+# print(전공과목별합 / 학점의총합)
+
+# n,m = input().split()
+# a,b= [], []
+# n = int(n)
+# m = int(m)
+# for _ in range(n):
+#     x = input().split()
+#     a.append(x)
+# for _ in range(n):
+#     x = input().split()
+#     b.append(x)
+#
+# for x in range(n):
+#     for y in range(m):
+#         print(int(a[x][y])+int(b[x][y]),end = ' ')
+#     print()
+
+strings = []
+for _ in range(5):
+    string = input()
+    strings.append(string)
