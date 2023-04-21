@@ -1,0 +1,50 @@
+# DICT = {}
+# al = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# n = list(range(10,36))
+#
+# for i in range(len(al)):
+#     DICT[al[i]] = n[i]
+#
+#
+# a,b = input().split()
+# a = a[::-1]
+#
+# answer = 0
+# for x in range(len(a)):
+#     if a[x].isalpha():
+#         answer += DICT[a[x]] * int(b) ** x
+#     else:
+#         answer += int(a[x]) * int(b) ** x
+#
+# print(answer)
+
+# DICT = {}
+# al = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# n = list(range(10,36))
+#
+# for i in range(len(al)):
+#     DICT[n[i]] = al[i]
+# a,b = input().split()
+# a = int(a)
+# b = int(b)
+# answer = ''
+# while a :
+#     x = a % b
+#     if x > 9:
+#         answer += DICT[x]
+#     else:
+#         answer += str(x)
+#     a //= b
+# print(answer[::-1])
+
+t = int(input())
+coins = [25,10,5,1]
+for _ in range(t):
+    change = int(input())
+    answer = []
+    for c in coins:
+        answer.append(change // c)
+        change %= c
+    for a in answer:
+        print(a,end = ' ')
+    print()
