@@ -1,0 +1,48 @@
+# a = int(input())
+# b = int(input())
+# c = int(input())
+#
+# if a + b + c == 180:
+#     if a == b == c == 60:
+#         print("Equilateral")
+#     elif a == b or b == c or c == a:
+#         print("Isosceles")
+#     else:
+#         print("Scalene")
+# else:
+#     print("Error")
+
+# while True:
+#     a, b, c = sorted(map(int, input().split()))
+#     if a + b + c == 0:
+#         break
+#     if c >= a + b:
+#         print('Invalid')
+#     elif a == b == c:
+#         print('Equilateral')
+#     elif a == b or a == c or c == b:
+#         print('Isosceles')
+#     else:
+#         print('Scalene')
+
+# a, b, c, = sorted(map(int, input().split()))
+# l = max(a,b,c)
+# s = sum((a,b,c)) - l
+#
+# while l >= s:
+#     l -= 1
+# print(l + s)
+
+# mysplit (원본문자열, 기준문자열) => 원본문자열을 기준으로 분리한 후 여러개의 문자열을
+# 리스트에 담아서 return 해주는 함수, 괄호 안에 아무것도 넣지 않는경우 공백을 기준으로 바꾸어
+# 주어라, 공백은 ' ' 한칸 기준으로만 본다
+s = '안녕하세요 반갑습니다. 제 이름은 정현 입니다.'
+def mysplit(string,substr):
+    pass
+print(mysplit(s)) # ['안녕하세요', '반갑습니다.', '제', '이름은', '정현', '입니다.']
+# myreplace(원본문자열, old문자, new문자) => 원본 문자열에서 old문자에 해당하는 부분을
+# new 문자로 변환시킨 문자열을 return 하시오.
+s2 = 'Hello Python'
+def myreplace(string,old,new):
+    pass
+print(myreplace(s2,'H','D')) # => "Dello Python"
