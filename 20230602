@@ -1,0 +1,48 @@
+# def mysplit(string, substr = ' '):
+#     result = []
+#     temp = ""
+#     for i in range(len(string)):
+#         if string[i] != substr:
+#             temp += string[i]
+#         else:
+#             result.append(temp)
+#             temp = ""
+#     result.append(temp)
+#     return result
+# a = "Hello world"
+# print(mysplit(a,'o'))
+
+def myreplace(string,old,new):
+    l = len(old)
+    a = ''
+    i = 0
+    # len(string) - l 을 한 이유는 i + l을 할 경우
+    # 범위를 벗어날 수도 있기 때문에
+#     while i < len(string) - l:
+#         if string[i:i + l] == old:
+#             a += new
+#             i += l - 1
+#         else:
+#             a += string[i]
+#         i += 1
+#     return a
+# s2 = 'Hello Python'
+# print(myreplace(s2,'H','D')) # => "Dello Python"
+
+def solution(numbers):
+    dict = {'zero' : 0 ,'one': 1,'two':2, "three":3, "four":4, "five":5,
+            "six":6, "seven":7, "eight":8, "nine":9}
+    for i in dict:
+        if i in numbers:
+            numbers = numbers.replace(i,str(dict[i]))
+    print(numbers)
+    return int(numbers)
+
+def solution2(numbers):
+    a = ['zero','one','two' "three", "four","five",
+            "six", "seven", "eight", "nine"]
+    for i in range(len(a)):
+        numbers = numbers.replace(a[i],str(i))
+    return  int(numbers)
+
+# 외계어 사전부터 영어가 싫어요 까지
