@@ -1,0 +1,36 @@
+# a = [10,6,2,7,3]
+# b = []
+# # b = a[::-1]
+# # print(b)
+#
+# for i in a[::-1]:
+#     b.append(i)
+# print(b)
+# 5 2
+# a,b= map(int,input().split())
+#
+# apart = []
+# for i in range(1, a + 1):
+#     for j in range(1, b + 1):
+#         ho = str(층)
+#         if ho < 10:
+#             ho += '0'
+
+# for i in range(1, a + 1):
+#     temp = []
+#     for j in range(1, b + 1):
+#         ho = i * 100 + j
+#         ho = str(ho) + '호'
+#         temp.append(ho)
+#     apart.append(temp)
+# print(apart)
+
+a = [1,2,3,4,5,6,7,8,9]
+n = int(input())   # 회전횟수
+# for _ in range(n):
+#     b = a.pop(0)
+#     a.append(b)
+# print(a)
+
+a = a[n % len(a):] + a[:n % len(a)]
+print(a)
