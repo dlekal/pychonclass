@@ -1,0 +1,41 @@
+# def solution(rank, attendance):
+#     x = list(zip(rank,attendance))
+#     x.sort()
+#     abc = []
+#     for i in x:
+#         if len(abc) == 3:
+#             break
+#         if i[1]:
+#             abc.append(rank.index(i[0]))
+#     return 10000 * abc[0] + 100 * abc[1] + abc[2]
+
+
+def make(n,arr):
+    binary_arr = []
+    for x in arr:
+        result = ''
+        while x:
+            result += str(x % 2)
+            x = x // 2
+        result = result[::-1]
+
+        while len(result) < n:
+            result = '0' + result
+        binary_arr.append(result)
+    return binary_arr
+
+def solution(n,arr1,arr2):
+    arr1 = make(n,arr1)
+    arr2 = make(n,arr2)
+    reult = []
+    for i in range(n):
+        string = ''
+        for j in range(n):
+            if arr1[i][j] == arr2[i][j] == '0':
+                string += ' '
+            else:
+                string += '#'
+        reult.append(string)
+    return reult
+
+print(solution(5,[9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
