@@ -1,0 +1,54 @@
+def solution(n,m):
+    A = n
+    B = m
+    G = 0
+    if n < m:
+        n,m = m,n
+    while m:
+        r = n % m
+        n = m
+        m = r
+    G = n
+
+    a = A // G
+    b = B // G
+    L = G * a * b
+    return [G,L]
+
+a = [3,7,2,9,1,5,6,4,8]
+def Bubble_sort(arr):
+    for i in range(len(arr) -1):
+        for j in range(len(arr) -1 -i):
+            if arr[j] > arr[j + 1]:
+                arr[j],arr[j + 1] = arr[j + 1], arr[j]
+Bubble_sort(a)
+print(a)
+
+import random
+arr = []
+while len(arr) < 20:
+    x = random.randint(0,100)
+    if x not in arr:
+        arr.append(x)
+print(f"arr = {arr}")
+target = int(input("찾을 값을 입력해주세요: "))
+
+def Binary_search(arr,target):
+    cnt = 0
+    arr.sort()
+    print(arr)
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        cnt += 1
+        middle = (low + high) // 2
+        if arr[middle] > target:
+            high = middle - 1
+        elif arr[middle] < target:
+            low = middle + 1
+        else:
+            print(f"{target}은 arr[{middle}]에 위치합니다.살행횟수: {cnt}")
+            return
+    print(f"{target}은 arr에 없습니다.실행횟수: {cnt}")
+Binary_search(arr,target)
+#박찬빈 쌤
