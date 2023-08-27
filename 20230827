@@ -1,0 +1,52 @@
+# def solution(my_string):
+#     answer = ('a, e, i, o, u')
+#     for i in answer:
+#         my_string = my_string.replace(i,'')
+#     return my_string
+
+
+# def solution(k, score):
+#     answer = []
+#     a = []
+#     for i in score:
+#         if len(a)<k:
+#             a.append(i)
+#         else:
+#             if min(a) < i:
+#                 a.remove(min(a))
+#                 a.append(i)
+#         answer.append(min(a))
+#     return answer
+#   새로운 배열을 만들어 명예의 전당 순위를 만들어주고 상위 k개의 점수 중 최하점수를 배열에 저장
+#3	[10, 100, 20, 150, 1, 100, 200]	[10, 10, 10, 20, 20, 100, 100]
+
+# from itertools import combinations
+# def solution(number):
+#     answer = 0
+#     a = list(combinations(number,3))
+#     for i in a:
+#         if sum(i) == 0:
+#             answer += 1
+#     return answer
+# print(solution([-2, 3, 0, 2, -5]))
+
+
+def solution(lottos, win_nums):
+    a = []
+    b = 6
+    c = 6
+    for i in lottos:
+        if i == 0:
+            b -= 1
+        elif i in win_nums:
+            b -= 1
+    if b == 7:
+        b = 6
+    a.append(b)
+    for j in lottos:
+        if j in win_nums:
+            c -= 1
+    if c == 7:
+        c = 6
+    a.append(c)
+    return a
