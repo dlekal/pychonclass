@@ -1,0 +1,33 @@
+# def solution1(s):
+#     answer = ''
+#     new_list = s.split(' ')
+#     for i in new_list:
+#         for j in range(len(i)):
+#             if j % 2 == 0:
+#                 answer += i[j].upper()
+#             else:
+#                 answer += i[j].lower()
+#         answer+= ' '
+#     return answer[0:-1]
+
+
+def solution(n, words):
+    a = []
+    number = 0
+    order = 0
+
+    a.append(words[0])
+    b = words[0][-1]   # 첫번째 글자의 마지막 글자
+    for i in range(1, len(words)):
+        if words[i] not in a and words[i][0] == b:
+            a.append(words[i])
+            b = words[i][-1]
+            print(1)
+        else:
+            print(2)
+            number = (i % n)
+            if number == 0:
+                number = n
+            order = (i // n) + 1
+    return [number, order]
+print(solution(3,["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]))
