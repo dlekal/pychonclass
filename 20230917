@@ -1,0 +1,80 @@
+# n=int(input())
+# tmp=[]
+# for i in range(7):
+#     float(input())
+# tmp.sort()
+# for i in range(n-7):
+#     cnt=float(input())
+#     if tmp[6]>cnt:
+#         tmp.pop()
+#         tmp.append(cnt)
+#     tmp.sort()
+# for i in tmp:
+#     print("%.3f"%(i))
+
+# for i in d:
+#     if i not in b:
+#         print('0')
+#     else:
+#         print('1')
+
+# a, b = map(int,input().split())
+#
+# c = list()
+#
+# for i in range(a):
+#     c.append(int(input()))
+# d = 0
+#
+# for i in reversed(range(a)):
+#     d += b // c[i]
+#     b = b % c[i]
+# print(d)
+# # d 값에 K를 동전으로 나눈 몫을 더해줌
+# b는 동전으로 나눈 나머지로 계속 반복
+
+# a = int(input())
+# b = []
+# for i in range(7):
+#     c = float(input())
+#     b.append(c)
+# b.sort()
+#
+# for i in range(a - 7):
+#     c = float(input())
+#     if b[6] > c:
+#         b.pop()
+#         b.append(c)
+#     b.sort()
+# for i in b:
+#     print("%.3f"%(i))
+#
+# import sys
+#
+# input = sys.stdin.readline
+# lowers = []
+#
+# n = int(input())
+# for i in range(n):
+#     score = float(input())
+#     if len(lowers) < 7:
+#         lowers.append(score)
+#         if len(lowers) == 7:
+#             lowers.sort()
+#     else:
+#         idx = 6
+#         while idx > -1 and lowers[idx] > score:
+#             idx -= 1
+#         if idx < 6:
+#             lowers.insert(idx + 1, score)
+# for l in lowers[:7]:
+#     print(f"{l:.3f}")
+
+# a = int(input())
+# b = list(map(int,input().split()))
+# b.sort()
+# c = 0
+# 
+# for i in range(1,a + 1):    #3 1 4 3 2      3, 3+1, 3+1+4, 3+1+4+3, 3+1+4+3+2
+#     c += sum(b[0:i])
+# print(c)
