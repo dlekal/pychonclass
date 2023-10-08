@@ -1,0 +1,80 @@
+# def solution(balls, share):
+#     answer = 0
+#     n = fac(balls)
+#     m = fac(share)
+#     nm = fac(balls - share)
+#
+#     answer = n / (nm * m)
+#
+#     return answer
+# # def myfunc(*args):
+# #     a = ""
+# #     for i in args:
+# #         a += i + " "
+# #     return a[:-1]
+# #
+# # a = "hello"
+# # b = "world"
+# # c = "good"
+# # d = "day"
+# # print(myfunc(a,b,c,d))
+#
+# def calculate(a,op,b):
+#     c = 0
+#     if op == '+':
+#         c = a + b
+#     if op == '-':
+#         c = a - b
+#     if op == '*':
+#         c  = a * b
+#     if op == '/':
+#         if b == 0:
+#             c = 0
+#         else:
+#             c = a / b
+#     return c
+#
+# a = 3
+# b = 4
+# op1= '+'
+# op2 = '-'
+# op3 = '/'
+# op4 = '*'
+#
+# print(calculate(a,op3,b))
+# print(calculate(a,op3,0))
+# def factorial(x):
+#     a = 1
+#     for i in range(1, x + 1):
+#         a *= i
+#     return a
+#
+# def solution(balls, share):
+#     answer = 0
+#     a = factorial(balls)
+#     b = factorial(share)
+#     c = factorial(balls - share)
+#
+#     answer = a / (c * b)
+#     return answer
+
+def solution(keyinput, board):
+    answer = [0, 0]
+    for i in keyinput:
+        if answer[0] != (board[0] - 1) / 2:
+            if i == 'left':
+                answer[0] -= 1
+            elif i == 'right':
+                answer[0] += 1
+        else:
+            break
+    for i in keyinput:
+        if answer[1] != (board[1] - 1) / 2:
+            if i == 'up':
+                answer[1] += 1
+            else:
+                answer[1] -= 1
+        else:
+            break
+    return answer
+print(solution([11, 11],[2, 1]))
