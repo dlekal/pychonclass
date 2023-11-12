@@ -1,0 +1,171 @@
+# 틱택톡
+# 게임 실행 과정
+# 보드판 준비
+# OX중 고르기 inputOX()
+# 보드판 출력
+# 사용자 자리 입력 inputPOS()
+# 보드판 출력
+# 우승조건 확인 victory()
+
+
+
+
+from test import  *
+try_cnt = 3
+while True:
+    try_cnt -= 1
+    id = input('아이디를 입력하시오: ')
+    pw = input('비밀번호를 입력하시오: ')
+    if log_in(id,pw):
+        print(f"{id}님 로그인 되었습니다.")
+        break
+    print(f"시도횟수 {try_cnt}회 남았습니다")
+    if try_cnt == 0:
+        print('시도횟수를 모두 소진하였습니다. 종료합니다.')
+        exit()
+board = ['*'] * 9
+
+display_board(board)
+
+player,computer = input_OX()
+
+display_board(board)
+
+while True:
+    # 사용자 자리 입력
+    pos = input_POS(board)
+    board[pos] = player
+    # 보드판 출력
+    display_board(board)
+    print( '\n')
+    # 우승조건 확인 victory
+     # 우승조건 성립하면 플레이서 승 출력 후 게임 종료
+    if VICTORY(player,board):
+        print("Player Win")
+        exit()
+    if draw(board):
+        print('무승부 입니다')
+        exit()
+    # 컴퓨터 입력(랜덤한 정수를 만들어서 해당 자리에 컴퓨터 문양 삽입)
+    pos = random_POS(board)
+    board[pos] = computer
+    # 보드판 출력
+    display_board(board)
+    # 컴퓨터 우승인지 확인
+     # 컴퓨터가 우승 조건에 성립하면 컴퓨터 승 출력후 게임 종료
+    if VICTORY(computer,board):
+        print("Computer Win")
+        exit()
+--------------------------------------------------------
+# # 파일 입출력 연습
+# # test.py만들기, log_in.txt 만들기 <- 새로 만들기
+#
+# file = open('log_in.txt','r') #open('파일이름.확장자','모드', encoding = 'utf8')
+#                             # 'w':(세로) 쓰기
+#                             # 'r': 읽기
+#                             # 'a': 추가하기
+# # line = file.read()          # 해당 파일에 있는 모든 문자들을 가지고 온다.
+# # while True:
+# #     line = file.readline().rstrip() #'Hello\n' -> 'Every one\n'...
+# # # line = file.readlines()
+# #     print(line,) #end=
+# #     if line == '':
+# #         break
+# # file.write('bye\n')
+# file.close()
+
+# with open('log_in.txt','r',encoding='utf8') as file:
+#     print(file.readlines())
+def display_board(board):
+    for i in range(3):
+        print('-------------')
+        print(f"| {board[3 * i]} | {board[3 * i + 1]} | {board[3 * i + 2]} |")
+    print('-------------')
+
+def input_OX():
+    while True:
+        a = input("O나 X중에서 선택해주세요:")
+        if a == 'O':
+            return 'O','X'
+        elif a == 'X':
+            b = 'O'
+            return 'O','X'
+        else:
+            print("O나 X중에서 선택해주세요")
+    # O가 입력되면 컴퓨터는 자동으로 X
+    # 사용자가 O나 X를 입력한다.
+    # 입력받은 문양의 반대되는 문양을 컴퓨터 문양으로 지정한다.
+    # 사용자 문양, 컴퓨터 문양 순으로 return 한다.
+def input_POS(board):
+    while True:
+        c = int(input('1~9 까지의 숫자중 입력해주세요:'))
+        if 0 < c <= 9:
+            if board[c - 1] == '*':
+                return c -1
+            else:
+                print("놓을 수 없는 위치 입니다.")
+        else:
+            print("1 ~ 9 중에 선택해 주세요.")
+    # 사용자가 문양 위치를 입력받는다.
+    # 입력받은 자리가 높아도 되는 자리인지 판단한다.
+    # 만약 입력한자리가 올바르지 않은 자리라면 다시 입력받는다.
+    # 제대로 입력받았다면 해당 자리를 return 한다.
+def VICTORY(x,board):
+    for i in range(3):
+        if board[3 * i] == board[3 * i + 1] and board[3 * i] == board[3 * i + 2] and board[3 * i] == x:
+            return True
+        elif board[i] == board[i + 3] and board[i] == board[i + 6] and board[i] == x:
+            return  True
+    if board[0] == board[4] and board[0] == board[8] and board[0] == x:
+        return True
+    elif board[2] == board[4] and board[2] == board[6] and board[2] == x:
+        return True
+    return  False
+
+    # 유저가 우승했을 경우 True, 아닌경우 False를 리턴한다.
+    # 우승 조건은 한줄 빙고로, 가로3, 세로3, 대각선2개의 경우가 있다.
+
+def random_POS(board):
+    import random
+
+    while True:
+        z = random.randint(0,8)
+        if board[z] == '*':
+            return z
+    # 랜덤한 정수를 만들어 컴퓨터의 문양을 넣을 좌표로 본다.
+    # 만약 올바른 좌표가 아니라면 다시 만든다.
+    # 잘 만들어 졌다면 return 한다.
+
+def draw(board):
+    for i in range(9):
+        if board[i] == '*':
+            return  False
+    return True
+
+def log_in(input_id,input_pw):
+    # with open('log_in.txt','r',encoding='utf8') as file:
+    #     DB = file.readlines()
+    #     id = ''
+    #     pw = ''
+    #     for db in DB:
+    #         key,value = db.split()
+    #         if key == 'ID:':
+    #             id = value.rstrip()
+    #         else:
+    #             pw = value.rstrip()
+    #             if id == input_id and pw == input_pw:
+    #                 return True
+    #     return False
+    file = open('log_in.txt')
+    line = file.readlines()
+    for i in range(0,len(line) - 1,2):
+        id = ''
+        pw = ''
+        id += line[i].rstrip().split()[1]
+        pw += line[i + 1].rstrip().split()[1]
+        if input_id == id and input_pw == pw:
+            return True
+    return False
+    # 아이디와 비밀번호를 전달받는다.
+    # 만약 전달받은 아이디와 비밀번호가 log_in.txt안에 존재한다면
+    # return True, 아니면 False
