@@ -1,0 +1,117 @@
+# def solution(numbers, hand):
+#     answer = ''
+#     a = {1:(0,0),2:(0,1),3:(0,2),4:(1,0),5:(1,1),6:(1,2),
+#                 7:(2,0),8:(2,1),9:(2,2),'*':(3,0),0:(3,1),'#':(3,2)}
+#
+#     l = [1,4,7]
+#     r = [3,6,9]
+#     b = '*'
+#     c = '#'
+#     for number in numbers:
+#         if number in l:
+#             answer += 'L'
+#             b = number
+#         elif number in r:
+#             answer += 'R'
+#             c = number
+#         else:
+#             #
+#             #
+#             #
+#             else:
+#                 if hand == 'left':
+#                     answer += 'L'
+#                     b = number
+#                 else:
+#                     answer += 'R'
+#                     c = number
+#
+#     return answer
+
+
+# def solution(s, skip, index):
+#     answer = ''
+#     a = ['a','b','c','d','e','f','g','h','i','j','k','l','m'
+#         ,'n','o','p','q','r','s','t','u','v','w','x','y','z']
+#     for i in s:
+#         c = 1
+#         idx = a.index(i)
+#         while c != index:
+#             if a[idx+c] in skip:
+#                 a.index(s[idx+c])
+#             else:
+#                 a.index(s[idx+c])
+#             c += 1
+#         answer += a[a.index(s[idx+c])]
+#     return answer
+#
+# print(solution("aukks","wbqd",5))
+
+# def solution(s,skip,index):
+#     # 입력 받은 문자열 s를 index만큼 민 문자로 교체한다. 만약 index만큼 미는 동안에 skip에 포함된 문자가 있다면
+#     # 해당 문자는 민 횟수에 계산하지 않고 다음으로 넘어간다.
+#     alphabet = 'abcdefghijklmnopqrstuvwxyz'
+#     answer = ""
+#     for _ in skip:
+#         alphabet = alphabet.replace(_, '')
+#
+#     for i in s:
+#         idx = alphabet.index(i)
+#         answer += alphabet[((idx + index) % len(alphabet))]
+#     return answer
+
+# for word in targets:  # targets에 있는 한 단어에 대해서
+#     times = 0  # 누른 키 총합
+#
+#     for char in word:  # 한 단어의 개별 문자에 대해
+#         flag = False  # 목표 문자열을 작성할수 있는지 없는지 판단하기 위함
+#         time = 101  # keymap의 원소의 길이가 최대 100이기 때문에 101로 설정
+#         # keymap에 있는 모든 원소를 반복하면서 가장 적게 누를수 있는 char(문자)를 찾음
+#         for key in keymap:
+#             if char in key:  # key(문자열)안에 char(문자)가 존재하면
+#                 time = min(key.index(char) + 1, time)
+#                 flag = True  # 목표 문자열을 작성할 수 있음
+#
+#         if not flag:  # 만약 keymap을 전부다 돌았는데도 문자를 찾지 못하면
+#             times = -1;
+#             break  # 목표 문자열을 작성할 수 없음
+#
+#         times += time  # 하나의 문자에 대해 누른 키를 총합(키)에 더해줌
+#
+#     answer.append(times)
+#     # targets에 있는 하나의 단어에 대해 수행이 끝났으면 answer에 누른 키 총합을 넣어줌
+#
+# return answer
+
+
+# def solution(keymap, targets):
+#     answer = []
+#     # {알파벳: 키맵에서 해당 알파벳이 몇번째에 가장 먼저 나오는지를 찾은 값}
+#
+#     alphabet = {}
+#     for key in keymap:  # ["ABACD", "BCEFD"]
+#         for k in key:
+#             if k not in alphabet or alphabet[k] > key.index(k) + 1:
+#                 alphabet[k] = key.index(k) + 1
+#
+#     # targets의 값들을 하나씩 보고
+#     for target in targets:
+#         cnt = 0
+#         for tg in target:
+#             if tg not in alphabet:
+#                 cnt = -1
+#                 break
+#             else:
+#                 cnt += alphabet[tg]
+#         answer.append(cnt)
+#     #   target의 값들을 하나씩 보고
+#     #       해당값을 딕셔너리의 키값으로 사용해서 더한다.
+#
+#     return answer
+#
+#
+# keymap = ["ABACD", "BCEFD"]
+# targets = ["ABCD", "AABB"]
+# print(solution(keymap, targets))
+
+# 숙제 공원 산책
