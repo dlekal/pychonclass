@@ -1,0 +1,23 @@
+def solution(dartResult):
+    # 1S2D*3T
+    answer = 0
+    a = {'S': 1, 'D': 2, 'T': 3}
+    b  = []
+    for i in range(len(dartResult)):
+        if dartResult[i] in a:
+            if dartResult[i-2] == '1':
+                b.append(10 ** int(a[dartResult[i]]))
+            else:
+                b.append(int(dartResult[i-1]) ** int(a[dartResult[i]]))
+        elif dartResult[i] == '#':
+            b[-1] = b[-1] * -1
+        elif dartResult[i] == '*':
+            if len(b) > 1:
+                b[-2] = b[-2] * 2
+                b[-1] = b[-1] * 2
+            else:
+                b[-1] = b[-1] * 2
+        else:
+            continue
+    print(b)
+    return sum(b)
