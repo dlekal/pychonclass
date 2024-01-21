@@ -1,0 +1,24 @@
+# # 1 2 4 5 7
+import  sys
+input = sys.stdin.readline
+
+n,k = map(int,input().split())
+a = []
+b = 0
+c = []
+for j in range(1, n + 1):
+    a.append(j)
+
+for i in range(n):
+    b += k -1
+    if b >= len(a):
+        b = b % len(a)
+    c.append(str(a.pop(b)))
+print()
+
+n = int(input())
+
+for _ in range(n):
+    int(input())
+
+for i in range(n):
