@@ -1,0 +1,31 @@
+# # Python3 샘플 코드 #
+#
+#
+# import requests, json
+# key = "eGNz9KjloNzZhEZrhEub4aBPBXGdur12GzKC4lLrNFm306WHlqxIstp52ueKB1tXOqmUgx3wFW0sGbDIjmY5eg=="
+# url = 'http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst'
+# params ={'serviceKey' : key, 'returnType' : 'json', 'numOfRows' : '100', 'pageNo' : '1', 'itemCode' : 'PM10', 'dataGubun' : 'HOUR', 'searchCondition' : 'WEEK' }
+#
+# response = requests.get(url, params=params)
+# data = json.loads(response.content)['response']['body']['items'][0]
+# gyeonggi = data['gyeonggi']
+# incheon = data['incheon']
+#
+# print(f'gyeonggi = {gyeonggi},incheon = {incheon}')
+
+def solution(people, limit):
+    answer = 0
+    people.sort()
+    a = 0
+    b = len(people) - 1
+
+    while(a <= b):
+        if people[a] + people[b] <= limit:
+            a += 1
+            b -= 1
+        else:
+            b -= 1
+        answer += 1
+    return answer
+
+# 컨트롤 쉬프트 알트 j 한번에 선택
