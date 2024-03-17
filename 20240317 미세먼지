@@ -1,0 +1,50 @@
+import tkinter as tk
+import tkinter.font
+window= tk.Tk()
+window.title("미세먼지 마스크")
+window.geometry("600x400+100+500")
+window.resizable(False, False)
+
+# TOOO: 1. 지역 선택할 수 있는 버튼(버튼 클릭시, 각 지역을(선택지)가 나오고 클릭하면 해당 선택지가 결정이 되는 형태
+# TOOO: 2. 미세먼지, 초미세먼지, 질병 감염 수치 증가폭등의 데이터를 표현할 공간(TEXT, 버튼 클릭시 데이터 표현, 기본은 주제에 대해서만
+# TOOO: 3. 미세먼지, 초미세먼지, 기준표를 담아줄 공간(TEXT)
+# TOOO: 4. 마스크 이미지를 보여줄 공간
+# TOOO: 5. 결과값 보여주기 활성화 버튼
+
+
+font = tk.font.Font(size=20)
+
+label = tk.Label(window, text='미세먼지 마스크',font = font, width=90,height=1, relief='solid', bd = 4 )
+label.pack()
+
+frame1 = tk.Frame(window, relief="solid", bd = 4)
+frame1.pack(side='left', fill='both', expand=True)
+
+label1 = tk.Label(frame1, text='지역', width= 4, height=1, relief= 'solid')
+label1.place(x= 57, y = 30)
+
+label2 = tk.Label(frame1, text='경기', width= 10, height=1, relief= 'solid')
+label2.place(x= 90, y = 30)
+
+label3 = tk.Label(frame1, text= '마스크 이미지', width= 30, height= 10, relief= 'solid')
+label3.place(x = 30, y = 100)
+
+button1 = tk.Button(frame1, text='버튼')
+button1.place(x=168, y = 28)
+
+button2 = tk.Button(frame1, text= '미세먼지', width= 30, height= 3)
+button2.place(x = 300, y= 28)
+
+button3 = tk.Button(frame1, text= '초미세먼지', width= 30, height= 3)
+button3.place(x = 300, y= 100)
+
+button4 = tk.Button(frame1, text= '질병에 걸린 환자수', width= 30, height= 3)
+button4.place(x = 300, y= 172)
+
+window.mainloop()
+
+a = """
+어차피 마지막에
+웃는 건
+나야.
+"""
