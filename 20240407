@@ -1,0 +1,30 @@
+def solution(today, terms, privacies):
+    answer = []
+    today = today.replace('.','')
+    c = {}
+    # c = {A : 6, B : 12, C : 3}
+    for j in terms:
+        a, b = j.split()
+        c[a] = int(b)
+    # d = 20211102
+    # a = A
+    for i in privacies:
+        d,a = i.split()
+        d = d.replace('.','')
+        d = int(d)
+        d += c[a] * 100
+        if int(str(d)[4:6]) > 12:
+            d += 8800
+        if int(today) >= d:
+            answer.append(privacies.index(i) + 1)
+    return answer
+print(solution("2022.05.19",["A 6", "B 12", "C 3"],["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
+
+def solution(arr):
+    answer = 0
+    a = max(arr)
+    while True:
+        c = 0
+        for i in arr:
+            if a % i = 0
+    return answer
