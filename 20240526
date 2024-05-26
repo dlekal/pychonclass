@@ -1,0 +1,72 @@
+# from collections import deque
+# import sys
+# input = sys.stdin.readline
+# # v: 정점의 수, e: 간선의 수, s: 시작정점
+# v,e,s = map(int,input().split())
+# # 연접 행렬 초기화, 0번 행과 0번 열은 사용 X
+# matrix = [[0] * (v + 1) for _ in range(v+1)]
+# # 간선 정보 최신화
+# for _ in range(e):
+#     a,b = map(int,input().split())
+#     matrix[a][b] = 1
+#     matrix[b][a] = 1
+#
+# # deque: double ended queue
+#
+# visit = [False] * len(matrix)
+#
+# def DFS(curr):
+#     visit[curr] = True
+#     print(curr, end=' ')
+#
+#     for _next in range(1, len(matrix)):
+#         if not visit[_next] and matrix[curr][_next]:
+#             DFS(_next)
+# def BFS(start):
+#     que = deque()
+#     que.append(start)
+#
+#     while que:      # 현재 정점
+#         x,y, cnt =
+#         curr = que.popleft()
+#         visit[curr] = True
+#         print(curr,end= ' ')
+#
+#         for _next in range(1,len(matrix)):
+#             if not visit[_next] and matrix[curr][_next] == 1:
+#                 que.append(_next)
+#                 visit[_next] = True
+#
+# DFS(s)        # 1 2 4 3
+# print()
+# visit = [False] * len(matrix)
+# BFS(s)
+
+from collections import  deque
+
+def solution(maps):
+    Que = deque()
+    # r: 행의 길이, c: 열의 길이
+    r,c = len(maps), len(maps[0])
+    target = [r-1,c-1]
+    visit = [[False] * c for _ in range(r)]
+    Que.append((0, 0, 1))
+    visit[0][0] = True
+
+    while Que:
+        x,y, cnt = Que.popleft()
+        if [x,y] == target: return cnt
+        for nx, ny in [[x+1,y], [x-1,y], [x,y+1], [x,y-1]]:
+            if 0<= nx < r and 0 <= ny < c:
+                if not visit[nx][ny] and maps[nx][ny]:
+                    Que.append([nx,ny,cnt + 1])
+                    visit[nx][ny] = True
+    return -1
+maps = [[1,0,1,1,1],
+        [1,0,1,0,1],
+        [1,0,1,1,1],
+        [1,1,1,0,1],
+        [0,0,0,0,1]]
+print(solution(maps))
+
+# 숙제 https://www.acmicpc.net/problem/7562
