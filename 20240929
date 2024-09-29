@@ -1,0 +1,90 @@
+# def solution(diffs, times, limit):
+#     l,r = 1,limit+1
+#     def cal(level):
+#         total = 0
+#         for i in range(len(diffs)):
+#             if diffs[i] <= level:
+#                 total += times[i]
+#             else:
+#                 fail = diffs[i] - level
+#                 total += (times[i] + times[i - 1]) * fail + times[i]
+#         return total
+#     while l <= r:
+#         mid = (l+r) // 2
+#         print(f"l: {l}, r: {r}, mid: {mid}")
+#         result = cal(mid)
+#         print(f"result : {result}")
+#         if result <= limit:
+#             r = mid - 1
+#         else:
+#             l = mid + 1
+#
+#     return l
+# print(solution([1, 99999, 100000, 99995],  [9999, 9001, 9999, 9001]   ,3456789012))
+#
+# 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+x_train = torch.tensor([[0,0], [0,1], [1,0], [1,1]], dtype = torch.float32)
+y_train = torch.tensor([[0],[1],[1],[0]], dtype = torch.float32)
+class XORModel(nn.Module):
+    def __init__(self):
+        super(XORModel, self).__init__()
+        self.layer1 = nn.Linear(2,2)
+        self.layer2 = nn.Linear(2,1)
+        self.sigmoid = nn.Sigmoid()
+
+    def forward(self,x):
+        out = self.sigmoid(self.layer1(x))
+        out = self.sigmoid(self.layer2(out))
+        return out
+
+model = XORModel()
+optimizer = optim.SGD(model.parameters(), lr = 0.1)
+
+# 학습
+
+def train_model(model,optimizer,epochs = 10000):
+    criterion = nn.MSELoss()
+    for epoch in range(epochs):
+        y_perd = model(x_train)
+        loss = criterion(y_perd, y_train)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if epoch % 1000 ==0:
+            print(f'Epoch {epoch}, Loss: {loss.item():.4f}')
+
+# print("Training with SGD")
+# train_model(model,optimizer)
+
+model = XORModel()
+optimizer = optim.SGD(model.parameters(), lr = 0.1, momentum = 0.9)
+
+print("Training with SGD + Momentum")
+train_model(model,optimizer)
+
+model = XORModel
+optimizer = optim.Adagrad(model.parameters(),lr = 0.1)
+
+print("Training with Adagrad:")
+train_model(model,optimizer)
+
+optimizer = optim.RMSprop(model.parameters(), lr =0.01)
+
+print("Training with RMSprop:")
+train_model(model,optimizer)
+
+model = XORModel()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+print("Training with Adam:")
+
+
+https://disco-railway-5d7.notion.site/108644b8f37380d7858bdb0c5460b88d?pvs=4
+https://disco-railway-5d7.notion.site/271cef58f5244f5ab47a1f47a7a75461?pvs=4
