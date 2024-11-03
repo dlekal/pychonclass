@@ -1,0 +1,24 @@
+# def solution(targets):
+#     answer = 0
+#     targets.sort(key = lambda x: x[1])
+#     cnt = 1
+#     s, e = targets[0]
+#
+#     for target in targets[1:]:
+#         if e < target[1] and e <= target[0]:
+#             cnt += 1
+#             s,e = target
+#
+#     return cnt
+
+# [[5, 5900], [11, 5200], [23, 10000], [27, 9200], [32, 6900], [40, 2900], [40, 3100]]
+
+# def solution(users, emoticons):
+#     answer = []
+#     users.sort()
+#
+#     for i in range(len(users)):
+#         if emoticons
+#     return answer
+
+# 이모티콘 할인매장
