@@ -1,0 +1,112 @@
+# discounts = [10, 20, 30, 40]
+# # 가입자 수, 총 매출액
+# answer = [0, 0]
+#
+#
+# # solution 함수는 사용자 정보와 이모티콘 가격을 입력받아 최적의 결과를 반환
+# def solution(users, emoticons):
+#     n, m = len(users), len(emoticons)  # n: 사용자 수, m: 이모티콘 수
+#     discount_list = [0] * m  # 각 이모티콘의 할인율을 저장하는 리스트 (초기값 0)
+#
+#     # DFS로 모든 할인율 조합을 탐색하는 재귀 함수
+#     def search(idx):
+#         global answer  # answer 값을 갱신하기 위해 global 선언
+#
+#         # 종료 조건: 모든 이모티콘의 할인율을 설정한 경우
+#         if idx == m:
+#             sale_num, cost_num = 0, 0  # 가입자 수와 총 매출액 초기화
+#
+#             # 모든 사용자에 대해 구매 여부와 가입 여부를 계산
+#             for i in range(n):
+#                 tmp = 0  # 현재 사용자의 총 구매 비용 초기화
+#
+#                 # 각 이모티콘에 대해 할인율 조건을 충족하는 경우 구매 금액을 누적
+#                 for j in range(m):
+#                     if users[i][0] <= discount_list[j]:  # 사용자의 조건에 맞는 할인율인지 확인
+#                         # 할인된 이모티콘 가격을 누적
+#                         tmp += emoticons[j] * (100 - discount_list[j]) // 100
+#
+#                 # 사용자가 원하는 최소 금액 이상을 구매한 경우: 가입자 수 증가
+#                 if tmp >= users[i][1]:
+#                     sale_num += 1
+#                 else:
+#                     # 가입하지 않고 이모티콘만 구매한 경우: 총 매출액에 추가
+#                     cost_num += tmp
+#
+#             # 기존 결과보다 나은 경우 (가입자 수가 더 많거나 같고 매출이 높음) 결과 갱신
+#             if sale_num > answer[0] or (sale_num == answer[0] and cost_num > answer[1]):
+#                 answer = [sale_num, cost_num]
+#             return
+#
+#         # 현재 이모티콘에 대해 가능한 할인율(10%, 20%, 30%, 40%)을 설정하고 다음 이모티콘 탐색
+#         for i in range(4):
+#             discount_list[idx] = discounts[i]  # 현재 이모티콘에 할인율 설정
+#             search(idx + 1)  # 다음 이모티콘으로 재귀 호출
+#
+#     # 첫 번째 이모티콘부터 모든 할인율 조합을 탐색 시작
+#     search(0)
+#
+#     # 최적의 가입자 수와 매출액 반환
+#     return answer
+#
+#
+#
+# import sys
+#
+# # def input():
+# #     retur().rstrip()
+# input = sys.stdin.readline
+# N = int(input())
+# arr = [int(input()) for _ in range(N)]
+#
+# cnt = 0
+# max = 0
+#
+# for i in reversed(arr):
+#     if max < i:
+#         cnt += 1
+#         max = i
+
+class Elaement:
+    def __init__(self, data, link):
+        self.data = data
+        self.link = link
+
+
+class Stack:
+    def __init__(self):
+        # 최상위 element를 가리키는 속성값
+        self.top = None
+
+    def push(self, val):
+        if self.top is None:
+            elem = Elaement(val, None)
+        else:
+            elem = Elaement(val,self.top)
+        self.top = elem
+
+
+    def pop(self):
+        if self.top is None:
+            return None
+        else:
+            ret_value = self.top.data
+            self.top = self.top.link
+            return  ret_value
+
+    def peak(self):
+        if self.top is None:
+            return None
+        else:
+            return self.top.data
+
+s = Stack()
+
+for i in range(1,6):
+    s.push(i)
+    print(s.peak())
+# None [1 2 3 4 5]
+for _ in range(5):
+    print(s.pop())
+
+# 백준 양한마리..양
