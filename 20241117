@@ -1,0 +1,86 @@
+# import sys
+# from collections import deque
+# input = sys.stdin.readline
+#
+#
+# def count_sheep(grid, h, w):
+#     quest = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+#     count = 0
+#     def bfs(x, y):
+#
+#
+#     for i in range(h):
+#         for j in range(w):
+#             if grid[i][j] == '#':
+#                 bfs
+#                 count += 1  # 새로운 양 무리를 발견했으므로 카운트 증가
+#     return count
+#
+#
+# t = int(input())  # 테스트 케이스 수
+# for _ in range(t):
+#     h, w = map(int, input().split())
+#     grid = [list(input().strip()) for _ in range(h)]
+#     print(count_sheep(grid, h, w))
+# # 그림
+#
+
+class Element:
+    # 생성자 함수: 클래스로 객체 생성시 가장 먼저 실행되는 함수
+    # 객체 생성시 필요한 정보를 넘겨주거나, 초기값을 설정 등의 내용을 가진다.
+
+    def __init__(self,data, link=None):
+        self.data = data
+        self.link = link
+
+class Queue:
+    def __init__(self):
+        self.rear = None     # rear: 가장 최근에 들어온 우너소를 가리키는 역할   # 마지막에 드렁온 원소를 가리킴
+        self.front = None    # front: 가장 먼저 들어온 원소를 가리키는 역할   # 제일 먼저 들어온 원소를 가리킴
+
+    def enqueue(self, data):
+        elem = Element(data)
+        # Queue에 원소가 없는 경우
+        if self.rear is None:
+            self.rear = self.front = elem
+        # Queue에 원소가 있는 경우
+        else:
+            self.rear.link = elem
+            self.rear = elem
+
+    def dequeue(self):
+            # Queue가 비어있는 경우
+            if self.front is None:
+                return None
+
+            # Queue에 원소가 하나 있는 경우
+            elif self.rear == self.front:
+                ret_value = self.front.data
+                self.rear = self.front = None
+                return ret_value
+            else:
+                ret_value = self.front.data
+                self.front = self.front.link
+                return ret_value
+
+    def reverse(self):
+        prev = None         # 현재 가리키고 있는 원소의 link가 가르킬 곳
+        curr = self.front   # link를 변경 시킬 현재 원소
+
+        while curr is not None:
+            next = curr.link  # 다음 노드를 저장
+            curr.link = prev  # 현재 노드의 방향을 이전 노드로 변경
+            prev = curr  # 이전 노드를 현재 노드로 업데이트
+            curr = next  # 현재 노드를 다음 노드로 업데이트
+
+        self.front, self.rear = self.rear,self.front # front를 마지막 노드로 업데이트
+
+
+q = Queue()
+for i in range(1,6):
+    q.enqueue(i)
+q.reverse()
+for u in range(5):
+    print(q.dequeue(), end=' ')
+
+백준 그림
