@@ -1,0 +1,63 @@
+# n = int(input())
+# target = int(input())
+# tx,ty = -1,-1
+# x = y = n//2
+# num = 1
+# board = [[0] * n for _ in range(n)]
+# offset = [[-1,0],[0,1],[1,0],[0,-1]]
+# odx = 0
+# step = 1
+# while num <= n** 2:
+#     for _ in range(2):
+#         for _ in range(step):
+#             board[x][y] = num
+#             if num == target:
+#                 tx,ty = x + 1, y + 1
+#             x += offset[odx % 4][0]
+#             y += offset[odx % 4][1]
+#             num += 1
+#             if num >= n ** 2:
+#                 break
+#         odx += 1
+#     step += 1
+#
+# for bo in board:
+#     print(*bo)
+# print(tx,ty)
+#
+
+# n = int(input())
+# total = set()
+# roman_num = [1,5,10,50]
+#
+# def func(depth,cal,idx):
+#     if depth == n:
+#         total.add(cal)
+#         return
+#
+#     for i in range(idx,len(roman_num)):
+#         cal += roman_num[i]
+#         func(depth + 1, cal, i)
+#         cal -= roman_num[i]
+#
+# func(0,0,0)
+# print(len())
+import sys
+
+input = sys.stdin.readline
+
+r,c = map(int, input().split())
+board = [input.rstrip() for _ in range(r)]
+words = []
+
+for bo in board:
+    row_words = list(filter(lambda x: len(x) > 1 , bo.split('#')))
+    words.extend(row_words)
+
+for c in range(c):
+    col = ''.join([board[r][c] for r in range(r)])
+    col_words = list(filter(lambda x: len(x) > 1, col.split('#')))
+    words.extend(col_words)
+print(min(words))
+
+# 숙제 달팽이 문제 해설
