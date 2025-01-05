@@ -1,0 +1,109 @@
+# n = int(input())  # 정사각형 크기 입력
+# target = int(input())  # 찾고자 하는 숫자 입력
+# tx, ty = -1, -1
+# x = y = n // 2  # 중심에서 시작
+# num = 1  # 처음 채울 숫자는 1
+# board = [[0] * n for _ in range(n)]  # n x n 배열 초기화
+# offset = [[-1, 0], [0, 1], [1, 0], [0, -1]]  # 상, 우, 하, 좌
+# odx = 0  # 방향 인덱스
+# step = 1  # 한 번에 이동할 거리
+#
+#
+# while num <= n**2:  # 숫자 1부터 n^2까지 채우기
+#     for _ in range(2):  # 같은 크기 step으로 두 방향을 이동
+#         for _ in range(step):  # 한 방향으로 step만큼 이동
+#             board[x][y] = num  # 현재 위치에 숫자를 채움
+#             if num == target:  # target을 찾으면 좌표 저장
+#                 tx, ty = x + 1, y + 1  # 1-based index로 변환
+#             x += offset[odx % 4][0]  # 방향에 따라 x 이동
+#             y += offset[odx % 4][1]  # 방향에 따라 y 이동
+#             num += 1  # 다음 숫자 증가
+#             if num > n**2:  # 배열을 모두 채우면 종료
+#                 break
+#         odx += 1  # 방향 변경
+#     step += 1  # 이동 거리 증가
+# for bo in board:  # 배열 출력
+#     print(*bo)
+# print(tx, ty)  # target의 좌표 출력
+
+
+
+# import sys
+# input = sys.stdin.readline
+
+# alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#
+# while True:
+#     data = input().rstrip()
+#     if data == 'R0C0': break
+#     R, C = map(int,data.replace('R','').replace('C',' ').split())
+#     answer = ''
+#     while C:
+#         C -= 1
+#         answer += alphabet[C % 26]
+#         C = C // 26
+#     print(answer[::-1] + str(R))
+
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+
+last_time = 0
+winning_team = 0
+
+team1 = [0, 0]
+team2 = [0, 0]
+
+for _ in range(n):
+    win, time = input().split()
+    if win == '1': team1[0] += 1
+    else: team2[0] += 1
+    m, s = map(int, time.split(':'))
+    time = m * 60 + s
+    if team1[0] == team2[0] and winning_team == 0:
+
+        if flag == 0:  # 이제 이기려고 함
+            one_time += 48 * 60 - (60 * m + s)
+            print(one_time // 60 + ':' + one_time % 60)
+    else:
+        if flag == 0:
+            two_time += 48 * 60 - (60 * m + s)
+            print(one_time // 60 + ':' + one_time % 60)
+
+
+
+import sys
+input = sys.stdin.readline
+n = int(input())
+last_time = 0
+winning_team = 0
+team1 = [0, 0]  # [1번팀의 점수, ]
+team2 = [0, 0]  # [2번팀의 점수, ]
+for _ in range(n):
+    win, time = input().split()
+    if win == '1': team1[0] += 1
+    else: team2[0] += 1
+    m, s = map(int, time.split(":"))
+    time = m * 60 + s
+    if team1[0] == team2[0]: # 동점이라면
+        if winning_team == 1:
+            team1[1] += time - last_time
+        else:
+            team2[1] += time - last_time
+        winning_team = 0
+    elif team1[0] > team2[0] and winning_team == 0:
+            last_time = time
+            winning_team = 1
+    elif team1[0] < team2[0] and winning_team == 0:
+            last_time = time
+            winning_team = 2
+if winning_team == 1:
+    team1[1] += 48*60 - last_time
+if winning_team == 2:
+    team2[1] += 48*60 - last_time
+
+print(f"{team1[1] // 60:02d}:{team1[1] % 60:02d}")
+print(f"{team2[1] // 60:02d}:{team2[1] % 60:02d}")
+
+백준 kcpc 3758
