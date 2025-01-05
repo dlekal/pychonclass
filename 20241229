@@ -1,63 +1,25 @@
-# n = int(input())
-# target = int(input())
-# tx,ty = -1,-1
-# x = y = n//2
-# num = 1
-# board = [[0] * n for _ in range(n)]
-# offset = [[-1,0],[0,1],[1,0],[0,-1]]
-# odx = 0
-# step = 1
-# while num <= n** 2:
-#     for _ in range(2):
-#         for _ in range(step):
-#             board[x][y] = num
-#             if num == target:
-#                 tx,ty = x + 1, y + 1
-#             x += offset[odx % 4][0]
-#             y += offset[odx % 4][1]
-#             num += 1
-#             if num >= n ** 2:
-#                 break
-#         odx += 1
-#     step += 1
-#
-# for bo in board:
-#     print(*bo)
-# print(tx,ty)
-#
-
-# n = int(input())
-# total = set()
-# roman_num = [1,5,10,50]
-#
-# def func(depth,cal,idx):
-#     if depth == n:
-#         total.add(cal)
-#         return
-#
-#     for i in range(idx,len(roman_num)):
-#         cal += roman_num[i]
-#         func(depth + 1, cal, i)
-#         cal -= roman_num[i]
-#
-# func(0,0,0)
-# print(len())
-import sys
-
-input = sys.stdin.readline
-
-r,c = map(int, input().split())
-board = [input.rstrip() for _ in range(r)]
-words = []
-
-for bo in board:
-    row_words = list(filter(lambda x: len(x) > 1 , bo.split('#')))
-    words.extend(row_words)
-
-for c in range(c):
-    col = ''.join([board[r][c] for r in range(r)])
-    col_words = list(filter(lambda x: len(x) > 1, col.split('#')))
-    words.extend(col_words)
-print(min(words))
-
-# 숙제 달팽이 문제 해설
+n = int(input())  # 정사각형 크기 입력
+target = int(input())  # 찾고자 하는 숫자 입력
+tx, ty = -1, -1
+x = y = n // 2  # 중심에서 시작
+num = 1  # 처음 채울 숫자는 1
+board = [[0] * n for _ in range(n)]  # n x n 배열 초기화
+offset = [[-1, 0], [0, 1], [1, 0], [0, -1]]  # 상, 우, 하, 좌
+odx = 0  # 방향 인덱스
+step = 1  # 한 번에 이동할 거리
+while num <= n**2:  # 숫자 1부터 n^2까지 채우기
+    for _ in range(2):  # 같은 크기 step으로 두 방향을 이동
+        for _ in range(step):  # 한 방향으로 step만큼 이동
+            board[x][y] = num  # 현재 위치에 숫자를 채움
+            if num == target:  # target을 찾으면 좌표 저장
+                tx, ty = x + 1, y + 1  # 1-based index로 변환
+            x += offset[odx % 4][0]  # 방향에 따라 x 이동
+            y += offset[odx % 4][1]  # 방향에 따라 y 이동
+            num += 1  # 다음 숫자 증가
+            if num > n**2:  # 배열을 모두 채우면 종료
+                break
+        odx += 1  # 방향 변경
+    step += 1  # 이동 거리 증가
+for bo in board:  # 배열 출력
+    print(*bo)
+print(tx, ty)  # target의 좌표 출력
