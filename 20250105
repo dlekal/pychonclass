@@ -107,3 +107,13 @@ print(f"{team1[1] // 60:02d}:{team1[1] % 60:02d}")
 print(f"{team2[1] // 60:02d}:{team2[1] % 60:02d}")
 
 백준 kcpc 3758
+
+import sys
+input=sys.stdin.readline
+
+T=int(input())
+for _ in range(T):
+    n,k,t,m=map(int,input().split())
+    board=[[0]*k for _ in range(n)]
+    count=[0]*n #제출횟수
+    time=[0]*n #제출시간
